@@ -10,51 +10,54 @@ import java.time.Period;
 @Getter
 @Entity
 @Table /*(name = "studentstable")*/
-public class student {
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private   String email;
-    private LocalDate DateOfBirth;
+    private String email;
+    private LocalDate dateOfBirth;
     @Transient
-    private Integer Age;
+    private Integer age;
 
-    public student() {
+    public Student() {
     }
-    public student(Long id,
+
+    public Student(Long id,
                    String name,
                    String email,
                    LocalDate DateOfBirth
-                   ) {
+    ) {
         this.id = id;
         this.name = name;
-        this.email=email;
-        this.DateOfBirth=DateOfBirth;
+        this.email = email;
+        this.dateOfBirth = DateOfBirth;
 
     }
-    public student(String name,
+
+    public Student(String name,
                    String email,
                    LocalDate DateOfBirth
-                   ) {
+    ) {
         this.name = name;
-        this.email=email;
-        this.DateOfBirth=DateOfBirth;
+        this.email = email;
+        this.dateOfBirth = DateOfBirth;
 
     }
 
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public  String getemail() {
+    public String getemail() {
         return email;
     }
 
-    public  void setemail(String email) {
+    public void setemail(String email) {
         this.email = email;
     }
 
@@ -67,18 +70,18 @@ public class student {
     }
 
     public LocalDate getDateOfBirth() {
-        return DateOfBirth;
+        return dateOfBirth;
     }
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.DateOfBirth = dateOfBirth;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Integer getAge() {
-        return Period.between(this.DateOfBirth,LocalDate.now()).getYears();
+        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
-        this.Age = age;
+        this.age = age;
     }
 }
