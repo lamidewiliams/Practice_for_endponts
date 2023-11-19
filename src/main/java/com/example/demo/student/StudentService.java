@@ -19,13 +19,13 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public  void deleteTheStudent(Long id) {
+    public  Student deleteThestudent(Long id) {
         // to check if the student to be deleted exist
         boolean exists = studentRepository.existsById(id);
         if (!exists) {
             throw new IllegalStateException("ID NOT Found!!");
         }
-        studentRepository.deleteById(id);
+        return studentRepository.deleteById(id);
     }
 
     public Student addNewStudent(StudentDTO studentDTO) {
@@ -49,6 +49,7 @@ public class StudentService {
 
         LocalDate dob = LocalDate.of(Integer.parseInt(yearMonthDay[0]), Integer.parseInt(yearMonthDay[1]), Integer.parseInt(yearMonthDay[2]));
         student.setDateOfBirth(dob);
+
         return studentRepository.save(student);
     }
 
