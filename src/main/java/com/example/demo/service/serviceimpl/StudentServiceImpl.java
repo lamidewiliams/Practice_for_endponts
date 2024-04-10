@@ -1,5 +1,9 @@
-package com.example.demo.student;
+package com.example.demo.service.serviceimpl;
 
+import com.example.demo.model.Student;
+import com.example.demo.repo.StudentRepository;
+import com.example.demo.service.StudentService;
+import com.example.demo.dto.StudentDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -13,7 +17,7 @@ import java.util.Optional;
 
 
 @Service
-public class StudentServiceImpl implements  StudentService {
+public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
     private final Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
     @Autowired

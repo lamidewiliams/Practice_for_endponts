@@ -1,5 +1,8 @@
-package com.example.demo.student;
+package com.example.demo.controller;
 
+import com.example.demo.model.Student;
+import com.example.demo.dto.StudentDTO;
+import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +17,22 @@ public class StudentController {
     public StudentController(StudentService studentservice) {
         this.studentservice = studentservice;
     }
+    @GetMapping("/String")
+    public String homePage(){
+        return "this is my home page";
+    }
 
-    @GetMapping
+    @GetMapping ("/all_student")
     public List<Student> getStudent() {
         return studentservice.getStudent();
     }
 
-    @PostMapping
+    @PostMapping("/add-student")
     public Student registerNewStudent(@RequestBody StudentDTO studentDTO) {
         return studentservice.addNewStudent(studentDTO);
     }
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(path = "/{id}")
     public void deleteStudent(@PathVariable("id") Long id) {
        studentservice.deleteThestudent(id);
     }

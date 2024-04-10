@@ -1,11 +1,12 @@
-package com.example.demo.student;
+package com.example.demo.cofig;
 
+import com.example.demo.model.Student;
+import com.example.demo.repo.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import static java.util.Calendar.AUGUST;
 import static java.util.Calendar.MARCH;
@@ -34,9 +35,9 @@ public class StudentConfig {
                     LocalDate.of(323 , MARCH,8)
 
             );
-            repository.saveAll(
+            /*repository.saveAll(
                     List.of(Dragon,Bukola,ola)
-            );
+            );*/
 
         };
     }
